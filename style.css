@@ -1,0 +1,502 @@
+@import url('https://font.googleapis.com/css/css2?family=Poppins:wgght@100;200;300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Itim&family=Sriracha&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --bg-color:#141414;
+    --second-bg-color:#222222;
+    --text-color: rgb(255, 255, 255);
+    --main-color: #ff0000;
+}
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+body {
+    background: var(--bg-color);
+    font-family: "Poppins", sans-serif;
+    color: var(--text-color);
+}
+html::-webkit-scrollbar {
+    width: 0.8rem;
+}
+html::-webkit-scrollbar-track {
+    background: var(--bg-color);
+}
+html::-webkit-scrollbar-thumb {
+    background: var(--main-color);
+}
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3rem 9%;
+    height: 6.5rem;
+    background: rgb(44, 44, 44, 0.7);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 1px 4px rgb(146, 161, 176, 0.3);
+}
+.logo {
+    font-size: 4rem;
+    color: var(--main-color);
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.logo:hover {
+    transform: scale(1.1);
+    text-shadow: 0 5px 15px var(--main-color);
+}
+
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+}
+.navbar ul li a {
+    color: var(--text-color);
+    font-size: 3rem;
+    margin: 4rem;
+    border-bottom: 3px solid transparent;
+    transition: 0.3 ease;
+}
+.navbar ul a:hover,
+.navbar ul a.active {
+    color: var(--main-color);
+    border-bottom: 2px solid var(--main-color);
+    text-shadow: 0 5px 15px var(--main-color);
+}
+
+#menu-icon {
+    font-size: 3.8rem;
+    color: var(--main-color);
+    display: none;
+}
+
+@media (max-width: 768px){
+    #menu-icon{
+        display: block;
+    }
+    .navbar {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 50%;
+        padding: 1rem 3%;
+        border-left: 2px solid var(--main-color);
+        border-bottom: 2px solid var(--main-color);
+        border-bottom-left-radius: 2rem;
+        display: none;
+        
+    }
+    .navbar.active{
+        display: block;
+    }
+    header .navbar ul {
+        flex-flow: column;
+    }
+    header .navbar ul li {
+        text-align: center;
+        width: 100%;
+        border-radius: 0.6rem;
+    }
+    header .navbar ul li a {
+        display: block;
+        padding: 1rem;
+        text-align: left;
+        font-size: 2rem;
+        color: #222222;
+    }
+    .navbar ul a:hover,
+    .navbar ul a.active {
+        padding: 1rem;
+        color: black;
+        border-radius: 0.5rem;
+        border-bottom: 0.5rem solid var(--main-color);
+    }
+}
+/* Home Section */
+
+section {
+    min-height: 100vh;
+    padding: 2rem;
+}
+.home {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    min-height: 100vh;
+    align-items: center;
+}
+.home #particles-js {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.home::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+.home .content {
+    flex: 1 1 40rem;
+    padding-top:  1rem;
+    z-index: 1;
+}
+.home .content h1 {
+    font-size: 5rem;
+    font-weight: 800;
+    color: var(--main-color);
+}
+.home .content h3 {
+    font-size: 3rem;
+    color: var(--text-color);
+    font-weight: 600;
+    padding: 1rem 0;
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+.home .content h3 span {
+    font-size: 3rem;
+    color: red;
+    padding: 1rem 0;
+    font-weight: 600;
+}
+
+.home .content h3 .typing-text {
+    position: relative;
+}
+.home .content h3 .typing-text::before {
+    content: 'a student at U-Thong School.';
+    animation: words 20 infinite;
+}
+.home .content h3 .typing-text::after{
+    content: '';
+    background-color: var(--bg-color);
+    position: absolute;
+    width: calc(100% + 8px);
+    height: 100%;
+    border-left: 2px solid white;
+    right: -8px;
+    animation: cursor 0.6s infinite, typing 20s steps(14) infinite;
+}
+
+@keyframes cursor {
+    to {
+        border-left: 2px solid var(--main-color);
+    }
+}
+
+@keyframes words{
+    0%, 20%{
+        content: 'Software Developer';
+    }
+    21%, 40%{
+        content: 'Web Developer';
+    }
+    41%, 60%{
+        content: 'Backend Developer';
+    }
+    61%, 80%{
+        content: 'Web Designer';
+    }
+    81%, 100%{
+        content: 'Python Developer';
+    }
+}
+@keyframes typing {
+    10%, 15%,
+    30%, 35%,
+    50%, 55%,
+    70%, 75%,
+    90%, 95% {
+        width: 0;
+    }
+    5%, 20%,
+    25%, 40%,
+    45%, 60%,
+    65%, 80%,
+    85% {
+        width: calc(100% + 8px);
+    }
+}
+
+.btn {
+    display: inline-block;
+    padding: 1rem 2.8rem;
+    background-color: var(--main-color);
+    font-size: 1.6rem;
+    border-radius: 4rem;
+    color: black;
+    border: 2px solid transparent;
+    letter-spacing: 0.1rem;
+    font-weight: 600;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+.btn span{
+    color: black;
+}
+.btn:hover span {
+    color: var(--main-color);
+}
+.btn:hover {
+    transform: scale(1.05);
+    background-color: var(--bg-color);
+    color: var(--main-color);
+    border: 2px solid var(--main-color);
+    filter: drop-shadow(0 0 15px var(--main-color) );
+}
+.home .image {
+    flex: 1 1 40rem;
+    z-index: 1;
+    border-radius: 50%;
+}
+.home .image img {
+    width:70%;
+    margin-left: 6rem;
+    border-left: 50%;
+    box-shadow: 0 2px 8px black;
+    cursor: pointer;
+    border-radius: 50%;
+}
+.home .image:hover img {
+    box-shadow: 0 15px 25px var(--main-color),
+               0 15px 35px var(--main-color);;
+               border-radius: 50%;
+}
+.social-icon a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    background: transparent;
+    font-size: 2rem;
+    border: 0.2rem solid red; 
+    margin: 3rem 1.5rem 3rem 0;
+    transition: 0.3s ease; 
+    color: red;
+    border-radius: 4rem;
+}
+
+.social-icon a:hover {
+    color: black;
+    transform: scale(1.5) translateY(-5px); 
+    background-color: rgb(255, 0, 0);
+    filter: drop-shadow(0 0 15px red);
+}
+
+.social-icon a:hover i {
+    filter: drop-shadow(0 0 25px black);
+}
+
+
+
+
+
+.timline-section {
+    min-height: 100vh;
+    padding: 100px 15px;
+    background: var(--bg-color);
+}
+
+
+.timline-section h2 {
+    margin-bottom: 5rem;
+}
+.timline-items {
+     max-width: 1000px;
+     margin: auto;
+     display: flex;
+     flex-wrap: wrap;
+     position: relative;
+}
+.aboutlogo {
+        font-size: 4rem;
+        color: var(--main-color);
+        font-weight: 800;
+        cursor: pointer;
+        transition: 0.3s ease;
+        font-family: "Sriracha", cursive;
+        pointer-events: none;
+
+}
+.skill-icon a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    background: transparent;
+    font-size: 2rem;
+    border: 0.2rem solid red; 
+    margin: 3rem 1.5rem 3rem 0;
+    color: red;
+    border-radius: 4rem;
+    pointer-events: none;
+}
+.about {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.about h1 {
+    margin-bottom: 1.5rem;
+}
+
+.about-content {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    gap: 2rem; 
+}
+
+.image img {
+    width: 50rem;
+    border-radius: 50%; 
+    box-shadow: 0 10px 8px rgba(255, 0, 0, 0.5); 
+}
+
+.Me {
+    text-align: left; 
+    line-height: 1.8; 
+    font-size: 2.3rem;
+    font-family: 'Dancing Script', cursive;
+}
+
+.Education-section {
+    min-height: 100vh;
+    padding: 100px 15px;
+    background: var(--bg-color);
+}
+.Education-section h2 {
+    margin: 5rem;
+}
+.Education-item {
+    max-width: 1000px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.Education-item::before {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 129%;
+    background-color: var(--main-color);
+    left: calc(50% - 1px);
+}
+.Education-item {
+    margin-bottom: 40px;
+    width: 100%;
+    position: relative;
+}
+
+.Education-item:last-child{
+    margin-bottom: 0;  
+}
+.Education-item:nth-child(odd) {
+    padding-right: calc(30% + 30px);
+    text-align: right
+}
+.Education-item:nth-child(even) {
+     padding-left: calc(30% + 30px);
+}
+
+
+.Education-dot {
+    height: 21px;
+    width: 21px;
+    background-color: var(--main-color);
+    position: absolute;
+    left: calc(50% - 8px);
+    border-radius: 50%;
+    top: 10px;
+}
+.Education-data {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--bg-color);
+    margin: 6px 0 15px;
+}
+.Education-content {
+    background-color: var(--main-color);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgb(224,224,224,0.25);
+    padding: 30px;
+    border-radius: 1em;
+    cursor: pointer;
+    transition: 0.3s ease;
+    margin-top: 30px;
+}
+.Education-content:hover {
+    transform: scale(1.05);
+}
+.Education-content h3 {
+    font-size: 25px;
+    color: white;
+    margin: 0 0 10px;
+    text-transform: capitalize;
+    font-weight: 500;
+}
+.Education-content p {
+    color: white;
+    opacity: 0.8;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+}
+
+.Skill-section {
+    min-height: 100vh;
+    padding: 100px 15px;
+    background: var(--bg-color);
+}
+
+.skill-skill {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.skill-skill a {
+    display: inline-flex;
+    align-items: center;  /* จัดตำแหน่งแนวตั้งตรงกลาง */
+    justify-content: center; /* จัดตำแหน่งแนวนอนตรงกลาง */
+    width: 7rem;
+    height: 7rem;
+    background: transparent;
+    font-size: 4rem;
+    border: 0.2rem solid rgb(255, 255, 255);
+    margin: 3rem 5rem 3rem 0;
+    color: rgb(247, 247, 247);
+    border-radius: 50%; /* ปรับให้เป็นวงกลม */
+    pointer-events: none;
+}
